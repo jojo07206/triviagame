@@ -1,42 +1,54 @@
 var correct = 0;
 var incorrect = 0;
 var unanswered = 0;
-var timeleft = 3;
+var timeleft = 30;
+var intervalId;
 
-function countdown(){
-    var timer = $('#timerdiv');
-    timer.html(timeleft + " seconds left");
+function run() {
+    clearInterval(intervalId);
+    intervalId = setInterval(decrement, 1000);
+  }
 
-    function timeIt(){
-        timeleft--;
-        timer.html(timeleft + " seconds left");
+  function decrement() {
+
+    timeleft--;
+
+    $('#timerdiv').html(timeleft + " seconds left");
+
+    if (timeleft === 0) {
+
+      stop();
+      $("#timerdiv").hide();
+      $("#buttondiv").hide();    
+      $("#questions").hide();
+      $("#finishpage").show();
+      $("#correct").html("Correct: " + correct);
+      $("#incorrect").html("Incorrect: " + incorrect);
+      $("#unanswered").html("Unaswered: " + unanswered);
     }
-setInterval(timeIt,1000);
-};
+  }
+
+function stop() {
+
+    clearInterval(intervalId);
+  };
 
     $("#questions").hide();
     $("#timerdiv").hide();
     $("#finishpage").hide();
 
     $("#start").on("click", function(){
-        countdown();
-
-        if (timeleft == 0){
-            time = true;
-            clearInterval(timeIt);
-            $("#finishpage").show();
-        };
-
-        ($("#finishpage").show(), 3000);
+        run();
+        ($("#finishpage").show(), 30000);
         $("#timerdiv").show();
         $("#finishpage").hide();
         $("#buttondiv").hide();
-        $("#questions").show();        
+        $("#questions").show();    
 
-        $("#input").on("click", function(){
-            $("#radio").attr("checked", "checked");
-        });
+    });
 
+    $("input").on("click", function(){
+        $(this).attr("checked", "checked");
     });
 
     $("#submit").on("click", function(event){
