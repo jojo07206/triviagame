@@ -1,0 +1,72 @@
+body {
+    background-image: url("https://thecountryclub.com.au/wp-content/uploads/2017/06/trivia-tuesdays-background.jpg");
+}
+
+#maindiv{
+    background-color: aquamarine;
+    height: auto;
+    width: auto;
+    margin-left: 200px;
+    margin-right: 200px;
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+h1 {
+    color: brown;
+    font-size: 5em;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#start {    
+    width: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 2cm;
+    background-color: rgb(26, 65, 194);
+    border-style: solid;
+    color: black;
+    padding: 15px 32px;
+    text-align: center;
+    font-size: 25px;
+    cursor: pointer;
+    text-align: center;
+}
+
+#triviadiv {
+    margin: 0 auto;
+    text-align: center;
+}
+
+fieldset {
+    border-style: none;
+}
+
+#submit {
+    width: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 2cm;
+    background-color: rgb(26, 65, 194);
+    border-style: solid;
+    color: black;
+    padding: 15px 32px;
+    text-align: center;
+    font-size: 25px;
+    cursor: pointer;
+    text-align: center;
+}
+
+label {
+    font-size: 3em;
+}
+
+p {
+    font-size: 4em;
+}
+
+input {
+    size: 4em;
+}
