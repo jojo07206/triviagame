@@ -1,50 +1,50 @@
 var correct = 0;
 var incorrect = 0;
 var unanswered = 0;
-
-var timeleft = 30;
+var timeleft = 3;
 
 function countdown(){
-    noCanvas();
-    var timer = select('#timerdiv');
-    timer.html(timeleft);
+    var timer = $('#timerdiv');
+    timer.html(timeleft + " seconds left");
 
     function timeIt(){
         timeleft--;
-        timer.html(timeleft);
+        timer.html(timeleft + " seconds left");
     }
 setInterval(timeIt,1000);
-}
+};
 
     $("#questions").hide();
     $("#timerdiv").hide();
-
-    var finishpage = function(){
-    $("#triviadiv").html("<h2>" + "ALL DONE!!!" + "<h2>" + 
-    "<h3>" + "Correct: " + correct + "</h3>" + 
-    "<h3>" + "incorrect: " + incorrect + "</h3>" + 
-    "<h3>" + "unanswered: " + unanswered + "</h3>");
-    }
+    $("#finishpage").hide();
 
     $("#start").on("click", function(){
+        countdown();
 
-        setTimeout(finishpage, 30000);
+        if (timeleft == 0){
+            time = true;
+            clearInterval(timeIt);
+            $("#finishpage").show();
+        };
 
-        $("#timerdiv").show();  
+        ($("#finishpage").show(), 3000);
+        $("#timerdiv").show();
+        $("#finishpage").hide();
         $("#buttondiv").hide();
-        $("#questions").show();
+        $("#questions").show();        
 
-        $("input").on("click", function(){
-            $('#radio').attr("checked", "checked");
+        $("#input").on("click", function(){
+            $("#radio").attr("checked", "checked");
         });
-
-
 
     });
 
-    $("#submit").on("click", function(){
-        clearTimeout();
+    $("#submit").on("click", function(event){
+        event.preventDefault();
+        $("#finishpage").show();
         $("#questions").hide();
-        $("#triviadiv").html(finishpage);
-
+        $("#timerdiv").hide();
+        $("#correct").html("Correct: " + correct);
+        $("#incorrect").html("Incorrect: " + incorrect);
+        $("#unanswered").html("Unaswered: " + unanswered);
     });
