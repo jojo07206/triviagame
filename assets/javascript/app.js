@@ -47,8 +47,9 @@ function stop() {
 
     });
 
-    $("input").on("click", function(){
-        $(this).attr("checked", "checked");
+    $("input").on("click", function(){        
+    var answer1 = $("input[name=q1]:checked").val();
+    console.log(answer1);
     });
 
     $("#submit").on("click", function(event){
