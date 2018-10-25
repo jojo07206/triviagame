@@ -49,7 +49,39 @@ function stop() {
 
     $("input").on("click", function(){        
     var answer1 = $("input[name=q1]:checked").val();
-    console.log(answer1);
+    var answer2 = $("input[name=q2]:checked").val();
+    var answer3 = $("input[name=q3]:checked").val();
+
+    if (answer1 == 2){
+      correct++;
+    } else if (answer1 == 1) {
+      incorrect++;
+    } else if (answer1 == 3) {
+      incorrect++;
+    } else if (answer1 == null) {
+      unanswered++;
+    };
+
+    if (answer2 == 4){
+      correct++;
+    } else if (answer2 == 5) {
+      incorrect++;
+    } else if (answer2 == 6) {
+      incorrect++;
+    } else if (answer2 == null) {
+      unanswered++;
+    };
+
+    if (answer3 == 6){
+      correct++;
+    } else if (answer3 == 7) {
+      incorrect++;
+    } else if (answer3 == 8) {
+      incorrect++;
+    } else if (answer3 == null) {
+      unanswered++;
+    };
+
     });
 
     $("#submit").on("click", function(event){
@@ -60,4 +92,5 @@ function stop() {
         $("#correct").html("Correct: " + correct);
         $("#incorrect").html("Incorrect: " + incorrect);
         $("#unanswered").html("Unaswered: " + unanswered);
+
     });
