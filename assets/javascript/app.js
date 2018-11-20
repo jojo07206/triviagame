@@ -7,12 +7,10 @@ var intervalId;
 function run() {
     clearInterval(intervalId);
     intervalId = setInterval(decrement, 1000);
-    correct = 0;
-    incorrect = 0;
-    unanswered = 0;
+    
 }
 
-  function decrement() {
+function decrement() {
 
     timeleft--;
 
@@ -29,18 +27,21 @@ function run() {
       $("#incorrect").html("Incorrect: " + incorrect);
       $("#unanswered").html("Unaswered: " + unanswered);
     }
-  }
+}
 
 function stop() {
 
     clearInterval(intervalId);
-  };
+};
 
-    $("#questions").hide();
-    $("#timerdiv").hide();
-    $("#finishpage").hide();
+$("#questions").hide();
+$("#timerdiv").hide();
+$("#finishpage").hide();
 
-    $("#start").on("click", function(){
+$("#start").on("click", function(){
+        correct = 0;
+        incorrect = 0;
+        unanswered = 0;
         run();
         ($("#finishpage").show(), 30000);
         $("#timerdiv").show();
@@ -48,9 +49,9 @@ function stop() {
         $("#buttondiv").hide();
         $("#questions").show();    
 
-    });
+});
 
-    $("input").on("click", function(){        
+$("input").on("click", function(){        
     var answer1 = $("input[name=q1]:checked").val();
     var answer2 = $("input[name=q2]:checked").val();
     var answer3 = $("input[name=q3]:checked").val();
