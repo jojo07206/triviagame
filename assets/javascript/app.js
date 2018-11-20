@@ -7,7 +7,10 @@ var intervalId;
 function run() {
     clearInterval(intervalId);
     intervalId = setInterval(decrement, 1000);
-  }
+    correct = 0;
+    incorrect = 0;
+    unanswered = 0;
+}
 
   function decrement() {
 
